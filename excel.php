@@ -46,6 +46,9 @@ function loop() {
   echo $highestColumnIndex . PHP_EOL;
 
   // NEED TO BE GLOBAL IN ORDER TO UPDATE OUTSIDE FUNCTION
+  // Not too sure about this one chief. Try creating a getter & setter for these guys. 
+  // If php supports classes, you can do it that way too.
+  // ie, globals are 99.9% times not the answer.
   global $ids;
   global $names;
   global $ages;
@@ -72,8 +75,8 @@ $idTemplate = $worksheet->getCell("A1");
 $nameTemplate = $worksheet->getCell("B1");
 $ageTemplate = $worksheet->getCell("C1");
 
-if ($idTemplate == "ID" && $nameTemplate == "NAME" && $ageTemplate == "AGE"){
-  loop();
+# add loop to conditional. You'll need to ask it to return a bool
+if ($idTemplate == "ID" && $nameTemplate == "NAME" && $ageTemplate == "AGE" && loop()){
   print_r($ids) . "\n";
   print_r($names) . "\n";
   print_r($ages) . "\n";
